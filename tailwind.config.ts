@@ -8,6 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        customFont: ['"syne"', "sans-serif"],
+        // Add more custom font families as needed
+      },
+      colors:{
+        commonBlack:"#1e1e1e"
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

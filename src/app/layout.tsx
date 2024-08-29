@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Syne } from "next/font/google";
 import "./globals.css";
+import "lenis/dist/lenis.css";
+import SmoothScrolling from "@/providers/smooth-scrolling";
+import { Header } from "@/components/header";
 
-const inter = Inter({ subsets: ["latin"] });
+const syne = Syne({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <SmoothScrolling>
+      <html lang="en">
+        <body className={syne.className}>
+          <Header />
+          h1
+          {children}
+          </body>
+      </html>
+    </SmoothScrolling>
   );
 }

@@ -4,8 +4,11 @@ import "./globals.css";
 import "lenis/dist/lenis.css";
 import SmoothScrolling from "@/providers/smooth-scrolling";
 import { Header } from "@/components/header";
+import localFont from "next/font/local";
+import { Cursor } from "@/components/cursor";
 
-const syne = Syne({ subsets: ["latin"] });
+const syne = Syne({ subsets: ["latin"], display: "swap", variable: "--syne_font" });
+const gallery = localFont({ src: "../assets/fonts/gallerymodern.woff2", variable: "--gallery_modern" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,11 +23,11 @@ export default function RootLayout({
   return (
     <SmoothScrolling>
       <html lang="en">
-        <body className={syne.className}>
+        <body className={`${syne.className} ${syne.variable} ${gallery.variable}`}>
+          <Cursor />
           <Header />
-          h1
           {children}
-          </body>
+        </body>
       </html>
     </SmoothScrolling>
   );
